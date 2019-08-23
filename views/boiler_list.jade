@@ -1,0 +1,58 @@
+extends base
+block content
+    ul.breadcrumb
+    .page-content-wrap
+        .row
+          .col-md-12
+            // START DEFAULT DATATABLE
+            .panel.panel-default
+              .panel-heading
+                h3.panel-title Boiler List&nbsp;
+                //a.btn.btn-success(href='/add_boiler')
+                  span.fa.fa-plus
+              .panel-body
+                table.table.datatable
+                   thead
+                     tr
+                       th No
+                       th Serial No
+                       th Brand
+                       th Model
+                       th Company
+                       th Action
+                   tbody
+                       if messages.msg_error
+                                | !{messages.msg_error}
+                            else
+                                for row, index in data
+                                 
+                                    tr
+                                        td #{index+1}
+                                        td #{row.boiler_serial_no}
+                                        td #{row.boiler_brand}
+                                        td #{row.boiler_model}
+                                        td #{row.boiler_company}
+                                          
+                                        td
+                                            div(style='display:inline-block')
+                                                a(href='/boiler/update/#{row.id}').btn.btn-sm.btn-primary
+                                                        i.fa.fa-pencil
+
+
+
+    #mb-signout.message-box.animated.fadeIn(data-sound='alert')
+        .mb-container
+          .mb-middle
+            .mb-title
+              span.fa.fa-sign-out
+              |  Log 
+              strong Out
+              |  ?
+            .mb-content
+              p Are you sure you want to log out?
+              p Press No if you want to continue work. Press Yes to logout current user.
+            .mb-footer
+              .pull-right
+                a.btn.btn-success.btn-lg(href='pages-login.html') Yes
+                button.btn.btn-default.btn-lg.mb-control-close No
+

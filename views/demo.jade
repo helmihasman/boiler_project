@@ -1,0 +1,291 @@
+extends base
+block content
+    ul.breadcrumb
+    .page-content-wrap
+        .row
+          .col-md-12
+            // START SEARCH
+            .row.stacked
+              .col-md-3.pull-right
+                .input-group.push-down-10
+                  span.input-group-addon
+                    span.fa.fa-search
+                  input.form-control(type='text', placeholder='Keywords...', value='Date')
+                  .input-group-btn
+                    button.btn.btn-primary Search
+            // END SEARCH
+    .content-frame
+        
+        // START CONTENT FRAME LEFT
+        script(type='text/javascript',src='/socket.io/socket.io.js')
+        script(type='text/javascript').
+            var socket = io();
+            socket.on('demo', function(rows) {
+                //alert(JSON.stringify(rows));
+                for (var k=0; k<rows.length; k++) {
+                    //alert("indes");
+                    setTimeout(function(i){ 
+                        //alert("in her");
+                    var eff = (rows[i].steam*(rows[i].steam_ent - rows[i].temp1)/(rows[i].lpg * 12002.87)) * 100;
+                    
+                    if(eff > 0){
+                    document.getElementById("eff").innerHTML = eff+"%";
+                    }
+                    else{
+                    document.getElementById("eff").innerHTML = "0%";
+                    }
+                    
+                    //alert(rows[i].steam);
+                    if(rows[i].steam!== undefined){
+                    document.getElementById("steamflow").innerHTML = rows[i].steam+" kg/hr";
+                    }
+                    else{
+                    document.getElementById("steamflow").innerHTML = "0 kg/hr";
+                    }
+                    
+                    if(rows[i].steam!== undefined){
+                    document.getElementById("steamtotal").innerHTML = "0 kg";
+                    }
+                    else{
+                    document.getElementById("steamtotal").innerHTML = "0 kg";
+                    }
+                    
+                    if(rows[i].wf_out!== undefined){
+                    document.getElementById("steampressure").innerHTML = rows[i].wf_out+" bar";
+                    }
+                    else{
+                    document.getElementById("steampressure").innerHTML = "0 bar";
+                    }
+                    
+                    if(rows[i].wf_out!== undefined){
+                    document.getElementById("steamtemp").innerHTML = "0 °C";
+                    }
+                    else{
+                    document.getElementById("steamtemp").innerHTML = "0 °C";
+                    }
+                    
+                    if(rows[i].lpg!== undefined){
+                    document.getElementById("fuelflow").innerHTML = rows[i].lpg+" kg/hr";
+                    }
+                    else{
+                    document.getElementById("fuelflow").innerHTML = "0 kg/hr";
+                    }
+                    
+                    if(rows[i].lpg!== undefined){
+                    document.getElementById("fueltotal").innerHTML = "0 kg";
+                    }
+                    else{
+                    document.getElementById("fueltotal").innerHTML = "0 kg";
+                    }
+                    
+                    if(rows[i].wf_in!== undefined){
+                    document.getElementById("waterflow").innerHTML = rows[i].wf_in+" liter";
+                    }
+                    else{
+                    document.getElementById("waterflow").innerHTML = "0 liter";
+                    }
+                    
+                    if(rows[i].temp1!== undefined){
+                    document.getElementById("watertemp").innerHTML = rows[i].temp1+" °C";
+                    }
+                    else{
+                    document.getElementById("watertemp").innerHTML = "0 °C";
+                    }
+                    
+                    if(rows[i].temp2!== undefined){
+                    document.getElementById("stacktemp").innerHTML = rows[i].temp2+" °C";
+                    }
+                    else{
+                    document.getElementById("stacktemp").innerHTML = "0 °C";
+                    }
+                   
+                    //sleep(300000);
+                    //alert("bill2--"+i);
+                    }, k * 5000,k);
+                }
+            });
+        .content-frame-right
+          .panel.panel-default
+            .panel-body
+              .row
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Steam Flow 
+                      p#steamflow.list-group-item(href='#') - kg/hr
+
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Steam Total 
+                      p#steamtotal.list-group-item(href='#') - kg
+              .row
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Steam Pressure 
+                      p#steampressure.list-group-item(href='#') - bar
+
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Steam Temp 
+                      p#steamtemp.list-group-item(href='#') - °C
+              .row
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Fuel Flow
+                      p#fuelflow.list-group-item(href='#') - kg/hr
+
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Fuel Total
+                      p#fueltotal.list-group-item(href='#') - kg
+              .row
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Water Flow
+                      p#waterflow.list-group-item(href='#') - liter
+
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Water Temp
+                      p#watertemp.list-group-item(href='#') - °C
+              .row
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Blowdown Quantity
+                      p#blowdownquantity.list-group-item(href='#') &nbsp;
+
+                .col-md-6
+                  .panel.panel-default
+                      p.list-group-item.active(href='#') Stack Temp
+                      p#stacktemp.list-group-item(href='#') - °C
+        // END CONTENT FRAME LEFT
+        // START CONTENT FRAME BODY
+        .content-frame-body.content-frame-body-left(style='margin-top:-60px')
+          .panel.panel-default
+            .panel-body
+              .row
+                .col-md-12
+                  .panel.panel-default
+                      .panel-heading
+                        .panel-title-box
+                          h3 MD-BIS
+                          //span Visitors (last month)
+                      .panel-body
+                        #morris-line(style='height: 250px;')
+              .row
+                .col-md-5
+                        img.tengah(src='/images/Internal-Boiler1.png' height='300px')
+                .col-md-7
+                        table.table(border='0px',height='300px')
+                          tr
+                            td
+                              .col-md-6
+                                .panel.panel-default
+                                    p.list-group-item.active(href='#',style='background-color:#0604ff') Steam Eff
+                                    p#eff.list-group-item(href='#') - %
+
+                              .col-md-6
+                                .panel.panel-default
+                                    p.list-group-item.active(href='#',style='background-color:#0604ff') Steam Cost
+                                    p.list-group-item(href='#') - Baht/kg
+                          tr(style='background-color:#fdce87')
+                            td
+                              .form-group
+                                label.col-md-3.control-label Start Time
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                              br
+                              .form-group
+                                label.col-md-3.control-label Current Time
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                              br
+                              .form-group
+                                label.col-md-3.control-label Work Hr
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-clock-o
+                                    input.form-control(type='text')
+              .row
+                .col-md-12
+                    table.table(border='1px',style='background-color:#fdce87')
+                          tr
+                            td
+                              .form-group
+                                label.col-md-3.control-label Company
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                            td
+                              .form-group
+                                label.col-md-3.control-label Serial No.
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                          tr
+                            td
+                              .form-group
+                                label.col-md-3.control-label Brand
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                            td
+                              .form-group
+                                label.col-md-3.control-label Max. Pressure
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                          tr
+                            td
+                              .form-group
+                                label.col-md-3.control-label Model
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                            td
+                              .form-group
+                                label.col-md-3.control-label EFF
+                                .col-md-9
+                                  .input-group
+                                    span.input-group-addon
+                                      span.fa.fa-calendar
+                                    input.form-control(type='text')
+                          
+
+        // END CONTENT FRAME BODY
+
+        
+     
+
+    #mb-signout.message-box.animated.fadeIn(data-sound='alert')
+        .mb-container
+          .mb-middle
+            .mb-title
+              span.fa.fa-sign-out
+              |  Log 
+              strong Out
+              |  ?
+            .mb-content
+              p Are you sure you want to log out?
+              p Press No if you want to continue work. Press Yes to logout current user.
+            .mb-footer
+              .pull-right
+                a.btn.btn-success.btn-lg(href='pages-login.html') Yes
+                button.btn.btn-default.btn-lg.mb-control-close No
+

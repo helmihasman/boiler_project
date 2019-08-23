@@ -1,0 +1,40 @@
+ul.x-navigation.x-navigation-horizontal
+    li.xn-logo
+      a(href='#')
+       img(src='../../uploads/boiler_logo2.png',width='150px',height='80px')
+      a.x-navigation-control(href='#')
+    li.xn-profile
+      a.profile-mini(href='#')
+        img(src='../../boiler/joli/assets/images/users/avatar.jpg')
+      .profile
+        .profile-image
+          img(src='../../boiler/joli/assets/images/users/avatar.jpg')
+        .profile-data
+          .profile-data-name Admin
+    li.xn-title(style='text-align: center') Menu
+    li.xn-openable(class=(title === 'Home' ? 'active' : ''))
+      a(href='/')
+        span.fa.fa-desktop
+        span.xn-text Dashboard
+    //li(class=(title === 'Performance' ? 'active' : ''))
+      a(href='/graph_performance')
+        span.fa.fa-files-o
+        span.xn-text Graph Perfomance
+    li.xn-openable(class=(title === 'Boiler List' ? 'active' :title === 'Add Boiler' ? 'active' : ''))
+      a(href='#')
+        span.fa.fa-th
+        span.xn-text Boiler 
+      ul
+        li(class=(title === 'Boiler List' ? 'active' : ''))
+          a(href='/boiler_list')
+            span.fa.fa-list-ul
+            |  Boiler List
+        li(class=(title === 'Add Boiler' ? 'active' : ''))
+          a(href='/add_boiler')
+            span.fa.fa-plus
+            |  Add Boiler
+    li
+      a(href='#')
+        span.fa.fa-file-text-o
+        span.xn-text Report
+  // END X-NAVIGATION

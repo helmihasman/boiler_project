@@ -1,0 +1,103 @@
+ul.x-navigation.x-navigation-horizontal.x-navigation-panel
+    script(type='text/javascript',src='/socket.io/socket.io.js')
+    script(type='text/javascript').
+            var socket = io();
+              socket.on('notification', function(rows) {
+                var date1 = new Date(rows[4].error_time);
+                var date2 = new Date(rows[3].error_time);
+                var date3 = new Date(rows[2].error_time);
+                var date4 = new Date(rows[1].error_time);
+                var date5 = new Date(rows[0].error_time);
+                document.getElementById("text_1").innerHTML = "Error: "+rows[4].error_1+" and "+rows[4].error_2+" at "+date1.toLocaleString();
+                document.getElementById("text_2").innerHTML = "Error: "+rows[3].error_1+" and "+rows[3].error_2+" at "+date2.toLocaleString();
+                document.getElementById("text_3").innerHTML = "Error: "+rows[2].error_1+" and "+rows[2].error_2+" at "+date3.toLocaleString();
+                document.getElementById("text_4").innerHTML = "Error: "+rows[1].error_1+" and "+rows[1].error_2+" at "+date4.toLocaleString();
+                document.getElementById("text_5").innerHTML = "Error: "+rows[0].error_1+" and "+rows[0].error_2+" at "+date5.toLocaleString();
+            });
+    li.xn-logo
+      a(href='/')
+       img(src='../../uploads/business_success.png',width='150px',height='35px',style='padding-bottom:3px')
+      a.x-navigation-control(href='#')
+    li(class=(title === 'Home' ? 'active' : ''))
+      a(href='/',style='background: #9966cc')
+        span.fa.fa-desktop
+        span.xn-text(style='font-size:14px') Dashboard
+    //li(class=(title === 'Performance' ? 'active' : ''))
+      a(href='/graph_performance')
+        span.fa.fa-files-o
+        span.xn-text Graph Perfomance
+    li.xn-openable
+      a(href='#',style='background:#6666cc')
+        span.fa.fa-file-text-o
+        span.xn-text(style='font-size:14px') Report
+      ul
+        //li
+          a(href='#')
+            span.fa.fa-bar-chart-o
+            |  Steam Chart
+        li
+          a(href='/error_detail')
+            span.fa.fa-list-ul
+            |  Alarm Details
+        li
+          a(href='/boiler_detail')
+            span.fa.fa-list-ul
+            |  Boiler readings Detail
+    li.xn-openable
+      a(href='#',style='background:#00cccc')
+        span.fa.fa-th
+        span.xn-text(style='font-size:14px') Setting Data 
+      ul
+        li
+          a(href='/boiler_list')
+            span.fa.fa-list-ul
+            |  Boiler List
+        //li
+          a(href='/add_boiler')
+            span.fa.fa-plus
+            |  Add Boiler
+        li
+          a(href='/steam_cost')
+            span.fa.fa-plus
+            |  Add Steam Cost
+    li.xn-icon-button.pull-right
+      a.mb-control(href='#', data-box='#mb-signout')
+        span.fa.fa-sign-out
+    
+    li.xn-icon-button.pull-right
+        a(href='#')
+          span.fa.fa-exclamation-triangle
+        .informer.informer-danger 5
+        .panel.panel-primary.animated.zoomIn.xn-drop-left.xn-panel-dragging
+          .panel-heading
+            h3.panel-title
+              span.fa.fa-exclamation-triangle
+              |  Alerts
+            .pull-right
+              span.label.label-danger 5 new
+          .panel-body.list-group.list-group-contacts.scroll(style='height: 200px;')
+            a.list-group-item(href='/error_detail')
+              span.fa.fa-exclamation-triangle
+              span.contacts-title(id='text_1') Error detected
+            a.list-group-item(href='/error_detail')
+              span.fa.fa-exclamation-triangle
+              span.contacts-title(id='text_2') Error detected
+            a.list-group-item(href='/error_detail')
+              span.fa.fa-exclamation-triangle
+              span.contacts-title(id='text_3') Error detected
+            a.list-group-item(href='/error_detail')
+              span.fa.fa-exclamation-triangle
+              span.contacts-title(id='text_4') Error detected
+            a.list-group-item(href='/error_detail')
+              span.fa.fa-exclamation-triangle
+              span.contacts-title(id='text_5') Error detected
+          .panel-footer.text-center
+            a(href='/error_detail') Show all alerts
+
+
+    
+    // END SIGN OUT
+    // MESSAGES
+    // END MESSAGES
+    // TASKS
+    // END TASKS

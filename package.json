@@ -1,0 +1,35 @@
+{
+  "name": "boiler_project",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node bin\/www"
+  },
+  "engines": {
+    "node": "8.8.1"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.0",
+    "express-validator": "^3.1.2",
+    "jade": "~1.11.0",
+    "less-middleware": "1.0.x",
+    "method-override": "^2.3.7",
+    "morgan": "~1.7.0",
+    "multer": "1.1.0",
+    "mysql": "^2.13.0",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^2.0.1",
+    "ibmiotf": "*",
+    "request": "*",
+    "nano": "*",
+    "passport": "~0.1.18",
+    "passport-local": "~0.1.6",
+    "bcrypt-nodejs": "latest",
+    "node-gcm": "^0.14.0"
+  }
+}

@@ -1,0 +1,224 @@
+extends base
+block content
+    ul.breadcrumb
+    .page-content-wrap
+        // START WIDGETS
+        .row
+          .col-md-3
+            // START WIDGET SLIDER
+            .widget.widget-default.widget-item-icon(onclick="location.href='pages-messages.html';")
+              .widget-item-left
+                span.fa.fa-bitbucket
+              .widget-data
+                .widget-int.num-count 48
+                .widget-title Total Boiler
+                // <div class="widget-subtitle">In your mailbox</div>
+              .widget-controls
+                a.widget-control-right.widget-remove(href='#', data-toggle='tooltip', data-placement='top', title='Remove Widget')
+                  span.fa.fa-times
+            // END WIDGET SLIDER
+          .col-md-3
+            // START WIDGET MESSAGES
+            .widget.widget-default.widget-item-icon(onclick="location.href='pages-messages.html';")
+              .widget-item-left
+                span.fa.fa-envelope
+              .widget-data
+                .widget-int.num-count 48
+                .widget-title New messages
+                .widget-subtitle In your mailbox
+              .widget-controls
+                a.widget-control-right.widget-remove(href='#', data-toggle='tooltip', data-placement='top', title='Remove Widget')
+                  span.fa.fa-times
+            // END WIDGET MESSAGES
+          .col-md-3
+            // START WIDGET REGISTRED
+            .widget.widget-default.widget-item-icon(onclick="location.href='pages-address-book.html';")
+              .widget-item-left
+                span.fa.fa-user
+              .widget-data
+                .widget-int.num-count 375
+                .widget-title Registred users
+                .widget-subtitle On your website
+              .widget-controls
+                a.widget-control-right.widget-remove(href='#', data-toggle='tooltip', data-placement='top', title='Remove Widget')
+                  span.fa.fa-times
+            // END WIDGET REGISTRED
+          .col-md-3
+            // START WIDGET CLOCK
+            .widget.widget-info.widget-padding-sm
+              .widget-big-int.plugin-clock 00:00
+              .widget-subtitle.plugin-date Loading...
+              .widget-controls
+                a.widget-control-right.widget-remove(href='#', data-toggle='tooltip', data-placement='left', title='Remove Widget')
+                  span.fa.fa-times
+              .widget-buttons.widget-c3
+                .col
+                  a(href='#')
+                    span.fa.fa-clock-o
+                .col
+                  a(href='#')
+                    span.fa.fa-bell
+                .col
+                  a(href='#')
+                    span.fa.fa-calendar
+            // END WIDGET CLOCK
+        // END WIDGETS
+        .row
+          .col-md-4
+            // START PROJECTS BLOCK
+            .panel.panel-default
+              .panel-heading
+                .panel-title-box
+                  h3 Boiler A
+                  span Room 1
+              .panel-body.padding-0
+                .chart-holder
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-fgcolor='#61C0E6', value='10', readonly='true')
+                    h5 Efficiency (%)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='145', readonly='true')
+                    h5 Slack (kg/hr)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='120', readonly='true')
+                    h5 Drain (kg/hr)
+                  // /test
+            // END PROJECTS BLOCK
+          // test
+          .col-md-4
+            // START PROJECTS BLOCK
+            .panel.panel-default
+              .panel-heading
+                .panel-title-box
+                  h3 Boiler B
+                  span Room 1
+              .panel-body.padding-0
+                .chart-holder
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-fgcolor='#61C0E6', value='10', readonly='true')
+                    h5 Efficiency (%)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='145', readonly='true')
+                    h5 Slack (kg/hr)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='120', readonly='true')
+                    h5 Drain (kg/hr)
+                  // /test
+            // END PROJECTS BLOCK
+          .col-md-4
+            // START PROJECTS BLOCK
+            .panel.panel-default
+              .panel-heading
+                .panel-title-box
+                  h3 Boiler C
+                  span Room 1
+              .panel-body.padding-0
+                .chart-holder
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-fgcolor='#61C0E6', value='10', readonly='true')
+                    h5 Efficiency (%)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='145', readonly='true')
+                    h5 Slack (kg/hr)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='120', readonly='true')
+                    h5 Drain (kg/hr)
+                  // /test
+            // END PROJECTS BLOCK
+        .row
+          .col-md-4
+            // START PROJECTS BLOCK
+            .panel.panel-default
+              .panel-heading
+                .panel-title-box
+                  h3 Boiler A
+                  span Room 2
+              .panel-body.padding-0
+                .chart-holder
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-fgcolor='#61C0E6', value='10', readonly='true')
+                    h5 Efficiency (%)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='145', readonly='true')
+                    h5 Slack (kg/hr)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='120', readonly='true')
+                    h5 Drain (kg/hr)
+                  // /test
+            // END PROJECTS BLOCK
+          // test
+          .col-md-4
+            // START PROJECTS BLOCK
+            .panel.panel-default
+              .panel-heading
+                .panel-title-box
+                  h3 Boiler A
+                  span Room 2
+              .panel-body.padding-0
+                .chart-holder
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-fgcolor='#61C0E6', value='10', readonly='true')
+                    h5 Efficiency (%)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='145', readonly='true')
+                    h5 Slack (kg/hr)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='120', readonly='true')
+                    h5 Drain (kg/hr)
+                  // /test
+            // END PROJECTS BLOCK
+          .col-md-4
+            // START PROJECTS BLOCK
+            .panel.panel-default
+              .panel-heading
+                .panel-title-box
+                  h3 Boiler A
+                  span Room 2
+              .panel-body.padding-0
+                .chart-holder
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-fgcolor='#61C0E6', value='10', readonly='true')
+                    h5 Efficiency (%)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='145', readonly='true')
+                    h5 Slack (kg/hr)
+                  .col-md-4.text-center
+                    br
+                    input.knob(data-width='100', data-height='110', data-angleoffset='0', data-linecap='round', data-bgcolor='#61C0E6', data-fgcolor='#61C0E6', data-min='0', data-max='1000', value='120', readonly='true')
+                    h5 Drain (kg/hr)
+                  // /test
+     
+
+    #mb-signout.message-box.animated.fadeIn(data-sound='alert')
+        .mb-container
+          .mb-middle
+            .mb-title
+              span.fa.fa-sign-out
+              |  Log 
+              strong Out
+              |  ?
+            .mb-content
+              p Are you sure you want to log out?
+              p Press No if you want to continue work. Press Yes to logout current user.
+            .mb-footer
+              .pull-right
+                a.btn.btn-success.btn-lg(href='pages-login.html') Yes
+                button.btn.btn-default.btn-lg.mb-control-close No
+

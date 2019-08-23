@@ -1,0 +1,49 @@
+extends base
+block content
+    ul.breadcrumb
+    .page-content-wrap
+        .row
+          .col-md-12
+            // START DEFAULT DATATABLE
+            .panel.panel-default
+              .panel-heading
+                h3.panel-title Error Details&nbsp;
+              .panel-body
+                table.table.datatable
+                   thead
+                     tr
+                       th No
+                       th Boiler Name
+                       th Time
+                       th Error 1
+                       th Error 2
+                       th Condition
+                       
+                   tbody
+                        for row, index in data
+                            tr
+                                
+                                td #{index+1}
+                                td #{row.boiler_name}
+                                td #{row.error_time.toLocaleString()}
+                                td #{"("+row.err_num_1+") "+row.error_1}
+                                td #{"("+row.err_num_2+") "+row.error_2}
+                                td #{row.cond}
+                                
+                                
+    #mb-signout.message-box.animated.fadeIn(data-sound='alert')
+        .mb-container
+          .mb-middle
+            .mb-title
+              span.fa.fa-sign-out
+              |  Log 
+              strong Out
+              |  ?
+            .mb-content
+              p Are you sure you want to log out?
+              p Press No if you want to continue work. Press Yes to logout current user.
+            .mb-footer
+              .pull-right
+                a.btn.btn-success.btn-lg(href='pages-login.html') Yes
+                button.btn.btn-default.btn-lg.mb-control-close No
+

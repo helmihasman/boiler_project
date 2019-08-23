@@ -1,0 +1,167 @@
+// START PRELOADS
+audio#audio-alert(src='../../boiler/joli/audio/alert.mp3', preload='auto')
+audio#audio-fail(src='../../boiler/joli/audio/fail.mp3', preload='auto')
+// END PRELOADS
+// START SCRIPTS
+// START PLUGINS
+script(type='text/javascript', src='../../boiler/joli/js/plugins/jquery/jquery.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/jquery/jquery-ui.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/bootstrap/bootstrap.min.js')
+// END PLUGINS
+// START THIS PAGE PLUGINS
+script(type='text/javascript', src='../../boiler/joli/js/plugins/icheck/icheck.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/scrolltotop/scrolltopcontrol.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/morris/raphael-min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/morris/morris.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/rickshaw/d3.v3.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/rickshaw/rickshaw.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/bootstrap/bootstrap-datepicker.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/owl/owl.carousel.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/moment.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/daterangepicker/daterangepicker.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/bootstrap/bootstrap-file-input.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/bootstrap/bootstrap-select.js')
+
+// END THIS PAGE PLUGINS
+// START TEMPLATE
+script(type='text/javascript', src='../../boiler/joli/js/settings.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins.js')
+script(type='text/javascript', src='../../boiler/joli/js/actions.js')
+//script(type='text/javascript', src='../../boiler/joli/js/demo_dashboard.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/knob/jquery.knob.min.js')
+script(type='text/javascript', src='../../boiler/joli/js/plugins/datatables/jquery.dataTables.min.js')
+
+
+script(type='text/javascript',src='/socket.io/socket.io.js')
+
+script(type='text/javascript').
+    $(document).ready(function() {
+     $('#example').DataTable();
+    } );
+
+script(type='text/javascript').
+  // Using leaflet.js to pan and zoom a big image.
+  // See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+  // Marker Pin: https://codepen.io/zachdunn/pen/wapEam
+  // create the slippy map
+  var map = L.map('image-map', {
+  minZoom: 1,
+  maxZoom: 4,
+  center: [0, 0],
+  zoom: 1,
+  crs: L.CRS.Simple,
+  attributionControl: false
+  });
+  L.control.attribution({
+  prefix: false
+  }).addAttribution('Boiler Location').addTo(map);
+  // House: https://i.imgur.com/cenqiCf.jpg
+  // Palace SVG (1280 x 806): https://dl.dropbox.com/s/yhrpnftsuis15z6/Topkapi_Palace_plan.svg
+  // dimensions of the image
+  var w = 1280 * 2,
+  h = 806 * 2,
+  url = '../boiler/joli/img/hello.jpg';
+  // calculate the edges of the image, in coordinate space
+  var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+  var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+  var bounds = new L.LatLngBounds(southWest, northEast);
+  // add the image overlay,
+  // so that it covers the entire map
+  L.imageOverlay(url, bounds).addTo(map);
+  // tell leaflet that the map is exactly as big as the image
+  map.setMaxBounds(bounds);
+  // pixel coords
+  var m = {
+  x: 1250,
+  y: 850
+  }
+  //Add marker
+  var newMarkerGroup = new L.LayerGroup();
+  var addedOne = false,
+  customPin = L.divIcon({
+  className: 'location-pin',
+  html: '<img src="https://static.robinpowered.com/roadshow/robin-avatar.png" data-toggle="modal" data-target="#modal_basic"><div class="pin"></div><div class="pulse"></div>',
+  iconSize: [30, 30],
+  iconAnchor: [18, 30]
+  });
+  function addMarker(e){
+  // Add marker to map at click location; add popup window
+  if (addedOne) {
+  return;
+  }
+  var newMarker = new L.marker(e.latlng, {
+  icon: customPin
+  }).addTo(map);
+  newMarker.bindPopup("<b>New Room</b><br>Adventures await");
+  addedOne = true;
+  }
+  // Lookup neighbors https://github.com/mapbox/leaflet-knn
+  var marker = L.marker(map.unproject([m.x, m.y], map.getMaxZoom()), {
+  icon: customPin
+  }).addTo(map);
+  // Add pop up for click
+// END TEMPLATE
+
+script(type='text/javascript').
+    var data = "#{data}".replace(/&quot;/g, '"');
+    var datanew = JSON.parse(data);
+    //alert(data);
+    var morrisCharts = function() {
+    Morris.Line({
+      element: 'morris-line',
+      data: datanew,
+      xkey: 'time',
+      ykeys: ['pre', 'flow'],
+      labels: ['Steam Pressure', 'Steam Flow Rate'],
+      resize: true,
+      parseTime: false,
+      lineColors: ['#33414E', '#95B75D']
+    });
+    }();
+    
+script.
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+      }
+      
+script.
+    function date_time(id)
+    {
+        date = new Date;
+        //date.setMinutes(date.getMinutes()+420);
+        year = date.getFullYear();
+        month = date.getMonth();
+        months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+        d = date.getDate();
+        day = date.getDay();
+        days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+        h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+        result = ''+days[day]+' '+months[month]+' '+d+' '+year+' '+h+':'+m+':'+s;
+        document.getElementById(id).value = result;
+        setTimeout('date_time("'+id+'");','1000');
+        return true;
+    }
+script(type='text/javascript').
+  window.onload = date_time('date_time');

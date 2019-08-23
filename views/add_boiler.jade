@@ -1,0 +1,67 @@
+extends base
+block content
+    ul.breadcrumb
+    .page-content-wrap
+    .row
+      .col-md-12
+        form.form-horizontal(enctype="multipart/form-data",role='form',method='post' action='/boiler/add')
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title
+                strong Add Boiler
+              ul.panel-controls
+            .panel-body
+            .panel-body
+              .form-group
+                label.col-md-3.col-xs-12.control-label Boiler ID
+                .col-md-6.col-xs-12
+                  .input-group
+                    span.input-group-addon
+                      span.fa.fa-pencil
+                    input.form-control(type='text',id="boiler_id",name="boiler_id")
+                  span.help-block
+              .form-group
+                label.col-md-3.col-xs-12.control-label Boiler Name
+                .col-md-6.col-xs-12
+                  .input-group
+                    span.input-group-addon
+                      span.fa.fa-pencil
+                    input.form-control(type='text',id="boiler_name",name="boiler_name")
+                  span.help-block
+              .form-group
+                label.col-md-3.col-xs-12.control-label Location
+                .col-md-6.col-xs-12
+                  .input-group
+                    span.input-group-addon
+                      span.fa.fa-pencil
+                    input.form-control(type='text',id="boiler_location",name="boiler_location")
+                  span.help-block
+              .form-group
+                label.col-md-3.col-xs-12.control-label Boiler Description
+                .col-md-6.col-xs-12
+                  textarea.form-control(rows='5',id="boiler_desc",name="boiler_desc")
+                  span.help-block Boiler Descriptions
+              .form-group
+                label.col-md-3.col-xs-12.control-label Upload Photo
+                .col-md-6.col-xs-12
+                  input.fileinput.btn-primary(type='file', title='Browse file',id="boiler_img",name="boiler_img")
+                  span.help-block
+            .panel-footer
+              button.btn.btn-default Clear Form
+              button.btn.btn-primary.pull-right Submit
+    #mb-signout.message-box.animated.fadeIn(data-sound='alert')
+        .mb-container
+          .mb-middle
+            .mb-title
+              span.fa.fa-sign-out
+              |  Log 
+              strong Out
+              |  ?
+            .mb-content
+              p Are you sure you want to log out?
+              p Press No if you want to continue work. Press Yes to logout current user.
+            .mb-footer
+              .pull-right
+                a.btn.btn-success.btn-lg(href='pages-login.html') Yes
+                button.btn.btn-default.btn-lg.mb-control-close No
+

@@ -1,0 +1,10 @@
+doctype html
+html
+    head
+       include header.jade
+    body.page-container.page-navigation-top
+      //include sidebar.jade
+      div.page-content
+       include navigation.jade
+       block content
+       include js.jade

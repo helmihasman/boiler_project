@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <!-- META SECTION -->
+        <title>Joli Admin - Responsive Bootstrap Admin Template</title>            
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <!-- END META SECTION -->
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+		        
+        <!-- CSS INCLUDE -->        
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+   integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+   crossorigin=""></script>
+        <!-- EOF CSS INCLUDE -->                                    
+    </head>
+    <body>
+        <!-- START PAGE CONTAINER -->
+        <div class="page-container">
+            
+            <!-- START PAGE SIDEBAR -->
+            <div class="page-sidebar">
+                <!-- START X-NAVIGATION -->
+                <ul class="x-navigation">
+                    <li class="xn-logo">
+                        <a href="index.html">Boiler</a>
+                        <a href="#" class="x-navigation-control"></a>
+                    </li>
+                    <li class="xn-profile">
+                        <a href="#" class="profile-mini">
+                            <img src="assets/images/users/avatar.jpg" alt="John Doe"/>
+                        </a>
+                        <div class="profile">
+                            <div class="profile-image">
+                                <img src="assets/images/users/avatar.jpg" alt="John Doe"/>
+                            </div>
+                            <div class="profile-data">
+                                <div class="profile-data-name">Admin</div>
+                                
+                            </div>
+                            
+                        </div>                                                                        
+                    </li>
+                    <li class="xn-title" style="text-align: center">Menu</li>
+                    <li class="active">
+                        <a href="index.html"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
+                    </li>  
+                    
+                         <li class="">
+                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Graph Perfomance</span></a>
+                        
+                    </li>                   
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Boiler </span></a>
+                        <ul>
+                            <li><a href="pages-gallery.html"><span class="fa fa-image"></span> Boiler List</a></li>
+                            <li><a href="pages-profile.html"><span class="fa fa-user"></span> Add Boiler </a></li>
+                            
+                            
+                                                                               
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Report</span></a>
+                        
+                    </li>
+                   
+                </ul>
+                <!-- END X-NAVIGATION -->
+            </div>
+            <!-- END PAGE SIDEBAR -->
+            
+            <!-- PAGE CONTENT -->
+            <div class="page-content">
+                
+                <!-- START X-NAVIGATION VERTICAL -->
+                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <!-- TOGGLE NAVIGATION -->
+                    <li class="xn-icon-button">
+                        <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                    </li>
+                    <!-- END TOGGLE NAVIGATION -->
+                    <!-- SEARCH -->
+                       
+                    <!-- END SEARCH -->
+                    <!-- SIGN OUT -->
+                    <li class="xn-icon-button pull-right">
+                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>                        
+                    </li> 
+                    <!-- END SIGN OUT -->
+                    <!-- MESSAGES -->
+                    
+                    <!-- END MESSAGES -->
+                    <!-- TASKS -->
+                    
+                    <!-- END TASKS -->
+                </ul>
+                <!-- END X-NAVIGATION VERTICAL -->                     
+
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                 </ul>
+                <!-- END BREADCRUMB -->                       
+                
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+                    
+                    <!-- START WIDGETS -->                    
+                    
+                    <!-- END WIDGETS -->                    
+                    
+                    <div class="row">
+
+                        <!-- NEWS WIDGET -->
+                        <div class="col-md-4">
+
+                            <div class="panel panel-default">                            
+                                <div class="panel-body panel-body-image">
+                                    <img src="assets/images/ocean.jpg" alt="Ocean"/>
+                                    <a href="#" class="panel-body-inform">
+                                        <span class="fa fa-heart-o"></span>
+                                    </a>
+                                </div>
+                                
+                                <div class="panel-body">
+                                    <h3>Ocean &mdash; body of saline water</h3>
+                                    <p>On Earth, an ocean is one of the major conventional divisions of the World Ocean, which occupies two-thirds of the planet's surface.</p>
+                                </div>
+                                <div class="panel-footer text-muted">
+                                    <span class="fa fa-clock-o"></span> 3d ago &nbsp;&nbsp;&nbsp;
+                                    <span class="fa fa-comment-o"></span> 36
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- END NEWS WIDGET -->
+
+                        <!-- PROFILE WIDGET -->
+                        <div class="col-md-4">
+
+                            <div class="panel panel-default">
+                                <div class="panel-body profile bg-info">
+
+                                    <div class="profile-image">
+                                        <img src="assets/images/users/user2.jpg" alt="John Doe">
+                                    </div>
+                                    <div class="profile-data">
+                                        <div class="profile-data-name">John Doe</div>
+                                        <div class="profile-data-title">UI/UX Designer</div>
+                                    </div>
+                                    <div class="profile-controls">
+                                        <a href="#" class="profile-control-left"><span class="fa fa-twitter"></span></a>
+                                        <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body list-group">
+                                    <a href="#" class="list-group-item"><span class="fa fa-user"></span> Profile</a>
+                                    <a href="#" class="list-group-item"><span class="fa fa-cog"></span> Settings</a>
+                                    <a href="#" class="list-group-item"><span class="fa fa-bar-chart-o"></span> Activity</a>
+                                    <a href="#" class="list-group-item"><span class="fa fa-sign-out"></span> Logoff</a>
+                                </div>                            
+                            </div>
+
+                        </div>
+                        <!-- END PROFILE WIDGET -->
+
+                        <!-- SETTINGS WIDGET -->
+                        <div class="col-md-4">   
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><span class="fa fa-cogs"></span> Settings</h3>                                
+                                    <ul class="panel-controls">
+                                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                                    </ul>                                   
+                                </div>
+                                <div class="panel-body">
+                                    <div class="container">
+    <div class="row">
+        <div class=" col-sm-6">
+            <div class="progress green">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">90%</div>
+            </div>
+        </div>
+        <div class=" col-sm-6">
+            <div class="progress light">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">75%</div>
+            </div>
+        </div>
+    </div>
+</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- END SETTINGS WIDGET -->
+
+                    </div>
+                    
+                    
+                    
+                    <!-- START DASHBOARD CHART -->
+					<div class="chart-holder" id="dashboard-area-1" style="height: 200px;"></div>
+					<div class="block-full-width">
+                                                                       
+                    </div>                    
+                    <!-- END DASHBOARD CHART -->
+                    
+                </div>
+                <!-- END PAGE CONTENT WRAPPER -->                                
+            </div>            
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->
+
+        <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>                    
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MESSAGE BOX-->
+
+        <!-- START PRELOADS -->
+        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <!-- END PRELOADS -->                  
+        
+    <!-- START SCRIPTS -->
+        <!-- START PLUGINS -->
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
+        <!-- END PLUGINS -->
+
+        <!-- START THIS PAGE PLUGINS-->        
+        <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>        
+        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/morris/raphael-min.js"></script>
+        <script type="text/javascript" src="js/plugins/morris/morris.min.js"></script>       
+        <script type="text/javascript" src="js/plugins/rickshaw/d3.v3.js"></script>
+        <script type="text/javascript" src="js/plugins/rickshaw/rickshaw.min.js"></script>
+        <script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+        <script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>                
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>                
+        <script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>                 
+        
+        <script type="text/javascript" src="js/plugins/moment.min.js"></script>
+        <script type="text/javascript" src="js/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- END THIS PAGE PLUGINS-->        
+
+        <!-- START TEMPLATE -->
+        <script type="text/javascript" src="js/settings.js"></script>
+        
+        <script type="text/javascript" src="js/plugins.js"></script>        
+        <script type="text/javascript" src="js/actions.js"></script>
+        
+        <script type="text/javascript" src="js/demo_dashboard.js"></script>
+        <script type="text/javascript">
+        
+// Using leaflet.js to pan and zoom a big image.
+// See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+// Marker Pin: https://codepen.io/zachdunn/pen/wapEam
+// create the slippy map
+var map = L.map('image-map', {
+  minZoom: 1,
+  maxZoom: 4,
+  center: [0, 0],
+  zoom: 1,
+  crs: L.CRS.Simple,
+  attributionControl: false
+});
+
+L.control.attribution({
+  prefix: false
+}).addAttribution('HQ @ Business Inc').addTo(map);
+
+// House: https://i.imgur.com/cenqiCf.jpg
+// Palace SVG (1280 x 806): https://dl.dropbox.com/s/yhrpnftsuis15z6/Topkapi_Palace_plan.svg
+// dimensions of the image
+var w = 1280 * 2,
+    h = 806 * 2,
+    url = 'img/hello.jpg';
+
+// calculate the edges of the image, in coordinate space
+var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+var bounds = new L.LatLngBounds(southWest, northEast);
+
+// add the image overlay, 
+// so that it covers the entire map
+L.imageOverlay(url, bounds).addTo(map);
+
+// tell leaflet that the map is exactly as big as the image
+map.setMaxBounds(bounds);
+
+// pixel coords
+var m = {
+x: 1250, 
+y: 850
+}
+//Add marker
+var newMarkerGroup = new L.LayerGroup();
+var addedOne = false,
+    customPin = L.divIcon({
+    className: 'location-pin',
+    html: '<img src="https://static.robinpowered.com/roadshow/robin-avatar.png" data-toggle="modal" data-target="#modal_basic"><div class="pin"></div><div class="pulse"></div>',
+    iconSize: [30, 30],
+    iconAnchor: [18, 30]
+  });
+function addMarker(e){
+// Add marker to map at click location; add popup window
+  if (addedOne) {
+    return;
+  }
+  
+  var newMarker = new L.marker(e.latlng, {
+    icon: customPin
+  }).addTo(map);
+  newMarker.bindPopup("<b>New Room</b><br>Adventures await");
+  addedOne = true;
+}
+// Lookup neighbors https://github.com/mapbox/leaflet-knn
+
+var marker = L.marker(map.unproject([m.x, m.y], map.getMaxZoom()), {
+    icon: customPin
+  }).addTo(map);
+// Add pop up for click
+        </script>
+        <!-- END TEMPLATE -->
+    <!-- END SCRIPTS -->         
+    </body>
+</html>
+
+
+
+
+
+

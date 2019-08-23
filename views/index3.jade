@@ -1,0 +1,105 @@
+extends base
+block content
+    ul.breadcrumb
+    .page-content-wrap
+        .row
+          .col-md-6
+            // START SEARCH
+            .row.stacked
+              .col-md-4
+                .input-group.push-down-10
+                  span.input-group-addon
+                    span.fa.fa-search
+                  input.form-control(type='text', placeholder='Keywords...', value='Date')
+                  .input-group-btn
+                    button.btn.btn-primary Search
+            // END SEARCH
+        .panel.panel-default
+          .panel-body
+            <div id="alert"> </div>
+            script(type='text/javascript',src='/socket.io/socket.io.js')
+            script(type='text/javascript').
+                  var socket = io();
+                    socket.on('boiler1', function(rows) {
+                      //alert("boiler1");
+                      console.log("rows from page:"+rows);
+                        var html='';
+                        var eff = (rows[0].steam*(rows[0].steam_ent - rows[0].temp1)/(rows[0].lpg * 12002.87)) * 100;
+                        
+
+                          html += '<table class="table" border="0px">'+
+                                  '<tbody>'+
+                                  '<tr >'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2" >'+
+                                  '<a href="#" class="list-group-item active">Steam Flow </a>'+
+                                  '<a href="#" class="list-group-item">'+rows[0].steam+' kg/hr</a>'+
+                                  '</td>'+
+                                  '<td class="list-group border-bottom push-down-20" >'+
+                                  '<a href="#" class="list-group-item active">Fuel Flow </a>'+
+                                  '<a href="#" class="list-group-item">'+rows[0].lpg+' kg/hr</a>'+
+                                  '</td></tr>'+
+                                  '<tr>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2 " >'+
+                                  '<a href="#" class="list-group-item active">Steam Pressure </a>'+
+                                  '<a href="#" class="list-group-item">'+rows[0].wf_out+' bar</a></td>'+
+                                  '<td colspan="2" rowspan="2"><img src="/images/Internal-Boiler1.png" class="tengah"></td>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2">'+
+                                  '<a href="#" class="list-group-item active">Stack Temp </a>'+
+                                  '<a href="#" class="list-group-item">'+rows[0].temp2+' °C</a></td></tr>'+
+                                  '<tr>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2" >'+
+                                  '<a href="#" class="list-group-item active">Steam Temp</a>'+
+                                  '<a href="#" class="list-group-item">0</a></td>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2"  style="vertical-align:bottom">'+
+                                  '<a href="#" class="list-group-item active">Water Flow</a>'+
+                                  '<a href="#" class="list-group-item">'+rows[0].wf_in+' kg/hr</a></td></tr>'+
+                                  '<tr>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2">'+
+                                  '<a href="#" class="list-group-item active">Blowdown Quantity</a>'+
+                                  '<a href="#" class="list-group-item">0</a></td>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2">'+
+                                  '<a href="#" class="list-group-item active " style="background:#8DC9EE">Steam Eff </a>'+
+                                  '<a href="#" class="list-group-item">'+Math.round(eff * 100) / 100+' %</a></td>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2 ">'+
+                                  '<a href="#" class="list-group-item active" style="background:#8DC9EE">Steam Cost </a>'+
+                                  '<a href="#" class="list-group-item">0</a></td>'+
+                                  '<td class="list-group border-bottom push-down-20 col-md-2 ">'+
+                                  '<a href="#" class="list-group-item active">Water Temp</a>'+
+                                  '  <a href="#" class="list-group-item">'+rows[0].temp1+' °C</a></td></tr>'+
+                                  '</tbody></table>';
+
+
+                        document.getElementById("alert").innerHTML = html;
+                        });
+                    /*socket.on('error1', function(rows) {
+                        //alert("erro1");
+                      console.log("rows from page:"+rows);
+                        var html='';
+
+                        html += '<li>G → Error Code : '+rows[0].err_num_1+''+rows[0].err_num_2+
+                                  '<ol type="i">'+
+                                  '<li>'+rows[0].error_1+'</li>'+
+                                  '<li>'+rows[0].error_2+'</li>'+
+                                  '<li>'+rows[0].cond+'</li>'+
+                                  '</ol>'+
+                                  '</li>';
+
+                        document.getElementById("error").innerHTML = html;
+                        });*/
+
+    #mb-signout.message-box.animated.fadeIn(data-sound='alert')
+        .mb-container
+          .mb-middle
+            .mb-title
+              span.fa.fa-sign-out
+              |  Log 
+              strong Out
+              |  ?
+            .mb-content
+              p Are you sure you want to log out?
+              p Press No if you want to continue work. Press Yes to logout current user.
+            .mb-footer
+              .pull-right
+                a.btn.btn-success.btn-lg(href='pages-login.html') Yes
+                button.btn.btn-default.btn-lg.mb-control-close No
+
